@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 
 import Entity.Navicella;
 import Entity.Pallina;
+import bricks.BricksManager;
 
 public class GamePanel extends JPanel implements Runnable{
     //SCREEN SETTINGS
@@ -19,10 +20,9 @@ public class GamePanel extends JPanel implements Runnable{
     
     KeyHandler keyH = new KeyHandler();
     Thread gameThread;                 //istanza per esecuzione in parallelo
-    public CollisionChecker cChecker = new CollisionChecker(this);
-
     Navicella nav = new Navicella(this, keyH);
     Pallina pallina = new Pallina(this, keyH ,nav);
+    BricksManager bricksMan = new BricksManager(this);
  
 
    
@@ -89,6 +89,7 @@ public class GamePanel extends JPanel implements Runnable{
         //navicella draw
         nav.draw(g2);
         pallina.draw(g2);
+        bricksMan.draw(g2);
   
         g2.dispose();                               //rilascia le risorse
     }
