@@ -7,9 +7,11 @@ import java.awt.Graphics2D;
 
 import javax.swing.JPanel;
 
+import Bricks.BricksManager;
+import Bricks.CollisionBricks;
 import Entity.Navicella;
 import Entity.Pallina;
-import bricks.BricksManager;
+
 
 public class GamePanel extends JPanel implements Runnable{
     //SCREEN SETTINGS
@@ -23,10 +25,8 @@ public class GamePanel extends JPanel implements Runnable{
     Navicella nav = new Navicella(this, keyH);
     Pallina pallina = new Pallina(this, keyH ,nav);
     BricksManager bricksMan = new BricksManager(this);
- 
+    CollisionBricks collisionBricks = new CollisionBricks(this, pallina, bricksMan);
 
-   
-    
 
     public GamePanel(){
 
@@ -77,6 +77,7 @@ public class GamePanel extends JPanel implements Runnable{
     //navicella update
     nav.update();
     pallina.update();
+    collisionBricks.CollisionPallinaBricks();
 
 
     }
@@ -88,8 +89,10 @@ public class GamePanel extends JPanel implements Runnable{
         
         //navicella draw
         nav.draw(g2);
-        pallina.draw(g2);
+        
         bricksMan.draw(g2);
+
+        pallina.draw(g2);
   
         g2.dispose();                               //rilascia le risorse
     }

@@ -15,10 +15,14 @@ public class Pallina extends Entity{
     KeyHandler KeyH;
     Navicella nav;
 
+    
+
+
     public Pallina(GamePanel gp, KeyHandler KeyH, Navicella nav){
         this.gp = gp;
         this.KeyH = KeyH;
         this.nav = nav;
+
         setDefaultValues();
         getPallinaImage();
         
@@ -39,22 +43,20 @@ public class Pallina extends Entity{
         File f3 = new File("./res/pallina/r3.png");
         File f4 = new File("./res/pallina/r4.png");
 
-
         try {
             r1 = ImageIO.read(f1);
             r2 = ImageIO.read(f2);
             r3 = ImageIO.read(f3);
             r4 = ImageIO.read(f4);
         } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-
+                e.printStackTrace();
+            }
     }
 
-    String directionUpDown = "up";
+    public String directionUpDown = "up";
     public void update(){
-        
+
+
         //cambio directionUpDown su schermoTop
         if (y < 0){
             directionUpDown = "down";}
@@ -65,16 +67,16 @@ public class Pallina extends Entity{
         
                 case "up": y -= speed;
                 break;
-        }
-        //rimbalzo su schermo sx
-        if( x <= 0){
-            directionLeftRight = "right";
-            System.out.println("pallina x =" + x);
-        }
+            }
+            //rimbalzo su schermo sx
+            if( x <= 0){
+                directionLeftRight = "right";
+                System.out.println("pallina x =" + x);
+            }
         //rimbalzo suchermo dx;
         if( x >= gp.screenWidth){
             directionLeftRight = "left";
-             System.out.println("pallina x =" + x);
+            System.out.println("pallina x =" + x);
         }
         switch (directionLeftRight) {
             case "left":
@@ -114,12 +116,12 @@ public class Pallina extends Entity{
             x = nav.x + ((nav.dimWidth)/2) - (dimWidth/2); // pallina sempre al centro bug
             directionLeftRight = "centrale";
       
-            // gp.cChecker.checkNavicella(this);
         }else {
-                    if(animCounter >= 40){
-                        animCounter = 0 ;}
-                    animCounter++;
-                    speed = 8;
+            if(animCounter >= 40){
+                animCounter = 0 ;
+            }
+                animCounter++;
+                speed = 8;
             
         }
 

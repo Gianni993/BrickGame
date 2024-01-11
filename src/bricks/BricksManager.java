@@ -1,4 +1,4 @@
-package bricks;
+package Bricks;
 
 import javax.imageio.ImageIO;
 
@@ -9,51 +9,61 @@ import Main.GamePanel;
 
 public class BricksManager {
     
-   GamePanel gp;
-   Bricks[] bricks;
+    GamePanel gp;
+    Bricks[] bricks;
+    int height = 24;
+    int width = 60;
+    int nBricks = 90;
+    File clay = new File("./res/bricks/dmgclay.png");
+    File concrete = new File("./res/bricks/dmgconcrete.png");
+    File perforated = new File("./res/bricks/dmgperforated.png");
+
 
    public BricksManager(GamePanel gp){
 
         this.gp = gp;
-        
-        bricks = new Bricks[10]; //numero di mattoncini
+        bricks = new Bricks[nBricks]; //numero di brick in mappa
 
-        getBricksImage();
+        getBricks();
    }
-
-        File clay = new File("./res/bricks/dmgclay.png");
-        File concrete = new File("./res/bricks/dmgconcrete.png");
-        File perforated = new File("./res/bricks/dmgperforated.png");
-
-   public void getBricksImage(){
-
+    
+   public void getBricks(){
         
-
-        try {
-
-            bricks[0] = new Bricks();
-            bricks[0].image = ImageIO.read(clay);
-            bricks[0].collision = true;
-
-            bricks[1] = new Bricks();
-            bricks[1].image = ImageIO.read(concrete);
-            bricks[1].collision = true;
-
-            bricks[2] = new Bricks();
-            bricks[2].image = ImageIO.read(perforated);
-            bricks[2].collision = true;
-
-
-
-           
-            
-        } catch (Exception e) {
-            e.printStackTrace();
+       
+        int colonna = 0;
+        int riga = 0;
+        int nColonnexRiga = 15;
+        int fuga = 10;
+        int x = 125; //offset
+        int y = 50; //offset
+        
+        for(int i = 0 ; i <= nBricks; i++){
+            try{
+                if (colonna >= nColonnexRiga){
+                    riga ++;
+                    colonna = 0;
+                }
+                bricks[i] = new Bricks();
+                bricks[i].image = ImageIO.read(perforated);
+                bricks[i].collision = true;
+                bricks[i].x = x + (width * colonna) + (colonna * fuga);
+                bricks[i].y = y + (riga * height) + (riga * fuga); 
+               
+                colonna++;
+            } catch (Exception e) {
+                    e.printStackTrace();
+            }   
         }
     }
-    public void draw(Graphics2D g2){
 
-        g2.drawImage(bricks[2].image,0,0,60,24,null);
+    
+    public void draw(Graphics2D g2){
+          
+        for (int i = 0 ; i < nBricks ; i++){
+            if(bricks[i] != null){
+                g2.drawImage(bricks[i].image,bricks[i].x,bricks[i].y,width,height ,null);
+            }
+        }
     }
 
 }
