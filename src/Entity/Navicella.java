@@ -10,15 +10,19 @@ public class Navicella extends Entity {
     
     GamePanel gp;
     KeyHandler KeyH;
+    Pallina pallina;
 
     public Navicella(GamePanel gp, KeyHandler KeyH){
         
      
         this.gp = gp;
         this.KeyH = KeyH;
+        
         setDefaultValues();
     }
-
+     public void setPallina(Pallina pallina) {
+         this.pallina = pallina;
+     }
 
     public void setDefaultValues(){
 
@@ -36,6 +40,7 @@ public class Navicella extends Entity {
 
         if (KeyH.leftPressed == true) {
             x -= speed; 
+
         }
 
         if (KeyH.rightPressed == true) {
@@ -45,7 +50,9 @@ public class Navicella extends Entity {
         if (KeyH.spacePressed == true) {
             
         }
+        pallina.update();
     }
+    
 
     public void draw(Graphics2D g2){
 

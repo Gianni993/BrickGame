@@ -22,20 +22,24 @@ public class GamePanel extends JPanel implements Runnable{
     
     KeyHandler keyH = new KeyHandler();
     Thread gameThread;                 //istanza per esecuzione in parallelo
+
     Navicella nav = new Navicella(this, keyH);
     Pallina pallina = new Pallina(this, keyH ,nav);
+    
     BricksManager bricksMan = new BricksManager(this);
     CollisionBricks collisionBricks = new CollisionBricks(this, pallina, bricksMan);
 
 
     public GamePanel(){
 
+        nav.setPallina(pallina);
         this.setPreferredSize(new Dimension(screenWidth,screenHeight)); // mostra il pannello con le dimensioni di screen W/H
         this.setBackground(Color.cyan);                                 //colore sfondo
         this.setDoubleBuffered(true);
         this.addKeyListener(keyH);                  //gamePanel cosi puo riconoscere gli input da tastiera
         this.setFocusable(true);          //finche la finestra di gioco è attiva, riceve gli input
     }
+
 
     public void startGameThread(){
 
@@ -76,7 +80,7 @@ public class GamePanel extends JPanel implements Runnable{
 
     //navicella update
     nav.update();
-    pallina.update();
+    //pallina.update();
     collisionBricks.CollisionPallinaBricks();
 
 

@@ -113,8 +113,14 @@ public class Pallina extends Entity{
         //animazione movimento & blocco pallina su navicella
         if (KeyH.spacePressed == true && collisioOn == true) {
             speed = 0;
-            x = nav.x + ((nav.dimWidth)/2) - (dimWidth/2); // pallina sempre al centro bug
-            directionLeftRight = "centrale";
+         
+        if (directionLeftRight == "left"){
+            x = x - nav.speed;
+        }
+        if (directionLeftRight == "right"){
+            x = x + nav.speed;
+            
+        }
       
         }else {
             if(animCounter >= 40){
