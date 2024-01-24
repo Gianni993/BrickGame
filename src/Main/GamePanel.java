@@ -18,7 +18,7 @@ public class GamePanel extends JPanel implements Runnable{
     public final int screenWidth = 1280; //px
     public final int screenHeight = 720;  //px raporto 16:9
 
-    int fps = 60;       //fps targhet
+    int fps = 10;       //fps targhet
     
     KeyHandler keyH = new KeyHandler();
     Thread gameThread;                 //istanza per esecuzione in parallelo

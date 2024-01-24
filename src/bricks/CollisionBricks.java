@@ -24,36 +24,59 @@ public class CollisionBricks {
         for(int i = 0; i < bricksMan.nBricks; i++){
 
             if(bricksMan.bricks[i] != null){
-                //collisone con top bricks
-               if(pallina.x >= (bricksMan.bricks[i].x - pallina.dimWidth) && pallina.x <= bricksMan.bricks[i].x + bricksMan.width && bricksMan.bricks[i].y <= (pallina.y + pallina.dimHeight) && 
-                    bricksMan.bricks[i].y >= pallina.y){
+
+            collisionTopBricks(i);
+            //collisionBottomBricks(i);
             
-                    pallina.directionUpDown = "up";
-                    System.out.println("collisone top");
-                    bricksMan.bricks[i] = null;
-                }
+        
             }
-       
-            //collisone con bottom bricks
-            if(bricksMan.bricks[i] != null){
-                
-                if(pallina.x >= (bricksMan.bricks[i].x - pallina.dimWidth) && pallina.x <= bricksMan.bricks[i].x + bricksMan.width && bricksMan.bricks[i].y + bricksMan.height <= pallina.y && 
-                    bricksMan.bricks[i].y + bricksMan.height + pallina.speed >= pallina.y){  //toglieno speed i px della pallina non potrebbero coinicdere con i px del bricks poiche senza speed potrebbe saltare il multiplo e non far avvenire la collisione
-                                                                                        
-                    pallina.directionUpDown = "down";
-                    System.out.println("collisone down y" + pallina.y);
-                    bricksMan.bricks[i] = null;
-                }
-            }
+      
+        }
 
+    }
+    
 
+    public void collisionTopBricks(int i){
+                                //BLOCCO CONTROLLO X
+        if(pallina.x >= (bricksMan.bricks[i].x - pallina.dimWidth) && pallina.x <= bricksMan.bricks[i].x + bricksMan.width
 
+                                //BLOCCO CONTROLLO Y
+            && (pallina.y - (pallina.speed/2) ) >= (bricksMan.bricks[i].y ) && (pallina.y + pallina.dimHeight) <= (bricksMan.bricks[i].y + (bricksMan.width/2))){
 
-
+            System.out.println("collisone top @ pallina.y  " + (pallina.y  ) + " bricks y "  + (bricksMan.bricks[i].y) );
             
+            pallina.directionUpDown = "up";
+            System.out.println("collisone top");
+            bricksMan.bricks[i] = null;
         }
     }
 
-   
+    public void collisionBottomBricks(int i){
+
+                            //BLOCCO CONTROLLO X
+        if(pallina.x >= (bricksMan.bricks[i].x - pallina.dimWidth) && pallina.x <= bricksMan.bricks[i].x + bricksMan.width
+
+                                //BLOCCO CONTROLLO Y
+        && (pallina.y ) <= (bricksMan.bricks[i].y + (bricksMan.width/2))){
+        
+        pallina.directionUpDown = "down";
+        System.out.println("collisone bottom @ pallina.y " + pallina.y + " bricks y + altezza "  + (bricksMan.bricks[i].y + bricksMan.height) );
+        bricksMan.bricks[i] = null;
+    }
+
+        
+
+    }
+
+   public void collisionLeftBricks(int i){
+
+    if((pallina.x + pallina.dimWidth) >=  bricksMan.bricks[i].x && pallina.x <= (bricksMan.bricks[i].x +5) &&
+
+            //controllo sulle y
+                (pallina.y + pallina.dimWidth ) >= bricksMan.bricks[i].y && pallina.y <= (bricksMan.bricks[i].y + bricksMan.width)){}
+
+
+   }
+
 
 }
