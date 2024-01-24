@@ -30,8 +30,8 @@ public class Pallina extends Entity{
     public void setDefaultValues(){
         dimHeight = 20;
         dimWidth = 20;
-        x = (gp.screenWidth/2) - (dimWidth/2) ;
-        y = gp.screenHeight - 24 ;
+        x = (gp.screenWidth/2) - (dimHeight/2);
+        y = gp.screenHeight - nav.dimHeight*2;
         speed = 8;
         directionLeftRight = "central";
         directionUpDown = "up";
@@ -146,8 +146,8 @@ public class Pallina extends Entity{
             }else if(animCounter <= 30){ image = r3;
             }else if(animCounter <= 40){ image = r4;
         }
-
-        g2.drawImage(image, x, y - dimHeight, dimWidth,dimHeight, null);
+        g2.drawLine(x, y, x, y);
+        g2.drawImage(image, x, y, dimHeight,dimHeight, null);
 
     }
 }

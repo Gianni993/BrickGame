@@ -61,7 +61,9 @@ public class BricksManager {
           
         for (int i = 0 ; i < nBricks ; i++){
             if(bricks[i] != null){
+                
                 g2.drawImage(bricks[i].image,bricks[i].x,bricks[i].y,width,height ,null);
+                 
             }
         }
     }
