@@ -99,6 +99,7 @@ public class Pallina extends Entity{
                 directionLeftRight = "left";
                 }else if (x>= nav.x + nav.dimWidth - (dimWidth)) {
                     directionLeftRight = "right";
+                    collisioOn = true;
                 }
 
         }   else{
@@ -112,23 +113,25 @@ public class Pallina extends Entity{
        
         //animazione movimento & blocco pallina su navicella
         if (KeyH.spacePressed == true && collisioOn == true) {
-            speed = 0;
-         
-        if (directionLeftRight == "left"){
-            x = x - nav.speed;
-        }
-        if (directionLeftRight == "right"){
-            x = x + nav.speed;
             
-        }
-      
-        }else {
+           speed = 0;
+
+             if (KeyH.rightPressed == true) {
+            x += nav.speed;}
+
+            if (KeyH.leftPressed == true) {
+                x -= nav.speed;
+            }
+
+        }else{
+
+            speed = 8;
+
             if(animCounter >= 40){
                 animCounter = 0 ;
-            }
-                animCounter++;
-                speed = 8;
-            
+
+            }else{
+                animCounter++;}
         }
 
     }
