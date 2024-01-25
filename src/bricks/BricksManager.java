@@ -13,7 +13,7 @@ public class BricksManager {
     Bricks[] bricks;
     int height = 24;
     int width = 60;
-    int nBricks = 90;
+    int nBricks = 180;
     File clay = new File("./res/bricks/dmgclay.png");
     File concrete = new File("./res/bricks/dmgconcrete.png");
     File perforated = new File("./res/bricks/dmgperforated.png");
@@ -37,7 +37,7 @@ public class BricksManager {
         int x = 150; //offset
         int y = 50; //offset
         
-        for(int i = 0 ; i <= nBricks; i++){
+        for(int i = 0 ; i < nBricks; i++){
             try{
                 if (colonna >= nColonnexRiga){
                     riga ++;
@@ -45,7 +45,6 @@ public class BricksManager {
                 }
                 bricks[i] = new Bricks();
                 bricks[i].image = ImageIO.read(perforated);
-                bricks[i].collision = true;
                 bricks[i].x = x + (width * colonna) + (colonna * fuga);
                 bricks[i].y = y + (riga * height) + (riga * fuga); 
                

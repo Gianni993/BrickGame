@@ -1,7 +1,6 @@
 package Entity;
 
 import java.awt.Graphics2D;
-import java.awt.image.BufferedImage;
 import java.io.File;
 
 import javax.imageio.ImageIO;
@@ -39,15 +38,9 @@ public class Pallina extends Entity{
 
     public void getPallinaImage(){
         File f1 = new File("./res/pallina/r.png");
-        File f2 = new File("./res/pallina/r2.png");
-        File f3 = new File("./res/pallina/r3.png");
-        File f4 = new File("./res/pallina/r4.png");
-
+        
         try {
             r1 = ImageIO.read(f1);
-            r2 = ImageIO.read(f2);
-            r3 = ImageIO.read(f3);
-            r4 = ImageIO.read(f4);
         } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -125,32 +118,19 @@ public class Pallina extends Entity{
             if (KeyH.leftPressed == true) {
                 x -= nav.speed;
             }
-
         }else{
 
             speed = 8;
-
-            if(animCounter >= 40){
-                animCounter = 0 ;
-
-            }else{
-                animCounter++;}
+          
         }
 
     }
 
     public void draw(Graphics2D g2){
 
-        BufferedImage image = null;
-
-        //animazione rotazione palla
-       if(animCounter <= 10){ image = r1;
-            }else if(animCounter <= 20){ image = r2;
-            }else if(animCounter <= 30){ image = r3;
-            }else if(animCounter <= 40){ image = r4;
-        }
+      
         g2.drawLine(x, y, x, y);
-        g2.drawImage(image, x, y, dimHeight,dimHeight, null);
+        g2.drawImage(r1, x, y, dimHeight,dimHeight, null);
 
     }
 }
