@@ -28,8 +28,8 @@ public class Pallina extends Entity{
         
     }
     public void setDefaultValues(){
-        dimHeight = 20;
-        dimWidth = 20;
+        dimHeight = 15;
+        dimWidth = 15;
         x = (gp.screenWidth/2) - (dimHeight/2);
         y = gp.screenHeight - nav.dimHeight*2;
         speed = 8;
@@ -58,7 +58,7 @@ public class Pallina extends Entity{
 
 
         //cambio directionUpDown su schermoTop
-        if (y < 0){
+        if (y <= 0){
             directionUpDown = "down";}
 
             switch (directionUpDown) {
@@ -89,18 +89,19 @@ public class Pallina extends Entity{
             default:
                 break;
         }
-        // rimbalzo su navicella
-        if (y >= nav.y && x >= (nav.x - dimWidth) && x <= nav.x + nav.dimWidth ){
+        // rimbalzo verso l alto su navicella
+        if (y + dimHeight*2 >= nav.y  && (x + dimWidth) >= nav.x && x <= nav.x + nav.dimWidth){
+
             System.out.println("navicella x=" + nav.x + " nav x + dim= " + (nav.x +nav.dimWidth) + " x pallina " + x + "x pallina + dim " + ( x + dimWidth));
             directionUpDown = "up";
-            collisioOn = true;
+            
 
             if(x <= nav.x){
                 directionLeftRight = "left";
-                }else if (x>= nav.x + nav.dimWidth - (dimWidth)) {
+                }else if (x>= nav.x + (nav.dimWidth - (dimWidth))) {
                     directionLeftRight = "right";
-                    collisioOn = true;
-                }
+            }
+                collisioOn = true;
 
         }   else{
                 collisioOn = false;
@@ -108,7 +109,9 @@ public class Pallina extends Entity{
             
         //game over o pallina --
         if (y > gp.screenHeight){
-            System.out.println("fine partita o pallina - 1 navicella x=" + nav.x + " nav x + dim= " + (nav.x +nav.dimWidth) + " x pallina " + x + "x pallina + dim " + ( x + dimWidth));
+            directionUpDown = "up";
+            System.out.println("pallina out");
+
         }
        
         //animazione movimento & blocco pallina su navicella

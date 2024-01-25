@@ -32,7 +32,7 @@ public class Navicella extends Entity {
         x = (gp.screenWidth/2) - (dimWidth/2) ;
         y = (gp.screenHeight) - (dimHeight);
         
-        speed = 6;
+        speed = 8;
     }
 
 

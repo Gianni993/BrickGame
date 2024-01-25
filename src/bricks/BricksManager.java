@@ -33,8 +33,8 @@ public class BricksManager {
         int colonna = 0;
         int riga = 0;
         int nColonnexRiga = 15;
-        int fuga = 10;
-        int x = 125; //offset
+        int fuga = 5;
+        int x = 150; //offset
         int y = 50; //offset
         
         for(int i = 0 ; i <= nBricks; i++){
