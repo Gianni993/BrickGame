@@ -14,9 +14,6 @@ public class Pallina extends Entity{
     KeyHandler KeyH;
     Navicella nav;
 
-    
-
-
     public Pallina(GamePanel gp, KeyHandler KeyH, Navicella nav){
         this.gp = gp;
         this.KeyH = KeyH;
