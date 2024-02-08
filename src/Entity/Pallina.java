@@ -46,7 +46,6 @@ public class Pallina extends Entity{
     public String directionUpDown = "up";
     public void update(){
 
-
         //cambio directionUpDown su schermoTop
         if (y <= 0){
             directionUpDown = "down";}
@@ -107,7 +106,9 @@ public class Pallina extends Entity{
         //animazione movimento & blocco pallina su navicella
         if (KeyH.spacePressed == true && collisioOn == true) {
             
-           speed = 0;
+            y= nav.y - 10;
+            speed = 0;
+            directionLeftRight = "center";
 
              if (KeyH.rightPressed == true) {
             x += nav.speed;}
@@ -120,12 +121,10 @@ public class Pallina extends Entity{
             speed = 8;
           
         }
-
     }
 
     public void draw(Graphics2D g2){
 
-      
         g2.drawLine(x, y, x, y);
         g2.drawImage(r1, x, y, dimHeight,dimHeight, null);
 

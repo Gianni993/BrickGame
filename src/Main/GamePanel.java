@@ -24,9 +24,10 @@ public class GamePanel extends JPanel implements Runnable{
     KeyHandler keyH = new KeyHandler();
     Thread gameThread;                 //istanza per esecuzione in parallelo
 
-    Navicella nav = new Navicella(this, keyH);
-    Pallina pallina = new Pallina(this, keyH ,nav);
     Mare mare = new Mare(this);
+    Navicella nav = new Navicella(this, keyH, mare);
+    Pallina pallina = new Pallina(this, keyH ,nav);
+    
     
     BricksManager bricksMan = new BricksManager(this);
     CollisionBricks collisionBricks = new CollisionBricks(this, pallina, bricksMan);
@@ -77,6 +78,8 @@ public class GamePanel extends JPanel implements Runnable{
     }
     //UPDATE
     public void update() {
+
+    mare.update();
 
     pallina.update();
     

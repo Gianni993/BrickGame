@@ -14,19 +14,20 @@ public class Navicella extends Entity {
     
     GamePanel gp;
     KeyHandler KeyH;
+    Mare mare;
     //Pallina pallina;
     int wifih = 80;
     int wifiw = 100;
 
-    public Navicella(GamePanel gp, KeyHandler KeyH){
+    public Navicella(GamePanel gp, KeyHandler KeyH, Mare mare){
         
         this.gp = gp;
         this.KeyH = KeyH;
+        this.mare = mare;
         
         setDefaultValues();
         getWiFI();
     }
-
 
     public void setDefaultValues(){
 
@@ -54,8 +55,14 @@ public class Navicella extends Entity {
             }
     }
 
-
     public void update(){
+
+        for (int j = x ; j <gp.screenWidth ; j++) {
+            y = (-dimHeight/2) + mare.offsetY + (int) (mare.ampiezza * Math.sin(2 * Math.PI * mare.fq * (x -mare.offsetX) / gp.screenWidth));
+            
+        }
+
+        //System.out.println(y);
 
         if (KeyH.leftPressed == true) {
             x -= speed; 
@@ -72,12 +79,9 @@ public class Navicella extends Entity {
             if (animCounter>=50) {
                 animCounter = 0;
             }
-
         }
-    
     }
     
-
     public void draw(Graphics2D g2){
 
         BufferedImage image = null;
@@ -92,10 +96,9 @@ public class Navicella extends Entity {
         image = null;
     }
 
-       
 
         g2.drawImage(image, x + (dimWidth/2) - (wifiw/2)    , y - wifih , wifiw,wifih, null);
-        g2.setColor(Color.BLUE);                   //setta il colore
+        g2.setColor(Color.blue);                   //setta il colore
         g2.fillRect(x, y , dimWidth,dimHeight); //disegna dal punto x y
        
 
