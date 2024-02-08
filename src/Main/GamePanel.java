@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 
 import Bricks.BricksManager;
 import Bricks.CollisionBricks;
+import Entity.Mare;
 import Entity.Navicella;
 import Entity.Pallina;
 
@@ -25,6 +26,7 @@ public class GamePanel extends JPanel implements Runnable{
 
     Navicella nav = new Navicella(this, keyH);
     Pallina pallina = new Pallina(this, keyH ,nav);
+    Mare mare = new Mare(this);
     
     BricksManager bricksMan = new BricksManager(this);
     CollisionBricks collisionBricks = new CollisionBricks(this, pallina, bricksMan);
@@ -32,7 +34,6 @@ public class GamePanel extends JPanel implements Runnable{
 
     public GamePanel(){
 
-        nav.setPallina(pallina);
         this.setPreferredSize(new Dimension(screenWidth,screenHeight)); // mostra il pannello con le dimensioni di screen W/H
         this.setBackground(Color.cyan);                                 //colore sfondo
         this.setDoubleBuffered(true);
@@ -77,9 +78,10 @@ public class GamePanel extends JPanel implements Runnable{
     //UPDATE
     public void update() {
 
-    //navicella update
+    pallina.update();
+    
     nav.update();
-    //pallina.update();
+
     collisionBricks.CollisionPallinaBricks();
 
 
@@ -94,6 +96,8 @@ public class GamePanel extends JPanel implements Runnable{
         nav.draw(g2);
         
         bricksMan.draw(g2);
+
+        mare.draw(g2);
 
         pallina.draw(g2);
   

@@ -24,8 +24,8 @@ public class Pallina extends Entity{
         
     }
     public void setDefaultValues(){
-        dimHeight = 15;
-        dimWidth = 15;
+        dimHeight = 10;
+        dimWidth = 10;
         x = (gp.screenWidth/2) - (dimHeight/2);
         y = gp.screenHeight - nav.dimHeight*2;
         speed = 8;

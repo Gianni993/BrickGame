@@ -43,7 +43,7 @@ public class BricksManager {
 			while(scannerDaFile.hasNextLine()) {
                
                 mattoneMap[i] =(scannerDaFile.nextInt());
-				System.out.println(mattoneMap[i]);
+				//System.out.println(mattoneMap[i]);
                 i++;
 			}
 		} catch (FileNotFoundException e) {

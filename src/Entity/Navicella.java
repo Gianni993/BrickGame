@@ -14,25 +14,19 @@ public class Navicella extends Entity {
     
     GamePanel gp;
     KeyHandler KeyH;
-    Pallina pallina;
+    //Pallina pallina;
     int wifih = 80;
     int wifiw = 100;
 
-
     public Navicella(GamePanel gp, KeyHandler KeyH){
         
-     
         this.gp = gp;
         this.KeyH = KeyH;
-       
         
         setDefaultValues();
         getWiFI();
     }
 
-     public void setPallina(Pallina pallina) {
-         this.pallina = pallina;
-     }
 
     public void setDefaultValues(){
 
@@ -80,7 +74,7 @@ public class Navicella extends Entity {
             }
 
         }
-        pallina.update();
+    
     }
     
 
