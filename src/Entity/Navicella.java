@@ -100,6 +100,7 @@ public class Navicella extends Entity {
         g2.drawImage(image, x + (dimWidth/2) - (wifiw/2)    , y - wifih , wifiw,wifih, null);
         g2.setColor(Color.blue);                   //setta il colore
         g2.fillRect(x, y , dimWidth,dimHeight); //disegna dal punto x y
+       // g2.fillPolygon();
        
 
     }

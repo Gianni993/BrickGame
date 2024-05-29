@@ -5,11 +5,7 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 
 public class Mare {
-
     GamePanel gp;
-    
-   
-
     private int larghezza;
     public double ampiezza;
     public double fq;

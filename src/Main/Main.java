@@ -9,7 +9,7 @@ public class Main {
         JFrame window = new JFrame();  //crea la finestra
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  // X per chiudere la finestra
         window.setResizable(false);                   //finestra non ridimensionabile
-        window.setTitle("Block Game");                    //nome nella barra della finestra
+        window.setTitle("Breaking Blocks");                    //nome nella barra della finestra
         
         GamePanel gamePanel = new GamePanel();
         window.add(gamePanel);
