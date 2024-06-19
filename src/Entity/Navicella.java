@@ -58,9 +58,7 @@ public class Navicella extends Entity {
 
         for (int j = x ; j <gp.screenWidth ; j++) {
             y = (-dimHeight/2) + mare.offsetY + (int) (mare.ampiezza * Math.sin(2 * Math.PI * mare.fq * (x -mare.offsetX) / gp.screenWidth));
-            
         }
-
         //System.out.println(y);
 
         if (KeyH.leftPressed == true) {

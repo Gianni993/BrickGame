@@ -4,7 +4,7 @@ import Main.GamePanel;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
-public class Mare {
+public class Mare extends Entity {
     GamePanel gp;
     private int larghezza;
     public double ampiezza;

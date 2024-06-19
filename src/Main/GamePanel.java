@@ -7,7 +7,7 @@ import java.awt.Graphics2D;
 import javax.swing.JPanel;
 
 import Bricks.BricksManager;
-import Bricks.CollisionBricks;
+import Bricks.Collision;
 import Entity.Mare;
 import Entity.Navicella;
 import Entity.Pallina;
@@ -29,7 +29,7 @@ public class GamePanel extends JPanel implements Runnable{
     
     
     BricksManager bricksMan = new BricksManager(this);
-    CollisionBricks collisionBricks = new CollisionBricks(this, pallina, bricksMan);
+    Collision collisionBricks = new Collision(this, pallina, bricksMan, mare);
 
 
     public GamePanel(){
@@ -84,8 +84,7 @@ public class GamePanel extends JPanel implements Runnable{
     
     nav.update();
 
-    collisionBricks.CollisionPallinaBricks();
-
+    collisionBricks.collisionCheck();
 
     }
     //DRAW
