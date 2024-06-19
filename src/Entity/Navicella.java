@@ -37,7 +37,7 @@ public class Navicella extends Entity {
         x = (gp.screenWidth/2) - (dimWidth/2) ;
         y = (gp.screenHeight) - (dimHeight);
         
-        speed = 8;
+        speed = 10;
     }
 
      public void getWiFI(){
@@ -54,7 +54,6 @@ public class Navicella extends Entity {
                 e.printStackTrace();
             }
     }
-
     public void update(){
 
         for (int j = x ; j <gp.screenWidth ; j++) {
@@ -65,8 +64,7 @@ public class Navicella extends Entity {
         //System.out.println(y);
 
         if (KeyH.leftPressed == true) {
-            x -= speed; 
-
+            x -= speed;
         }
 
         if (KeyH.rightPressed == true) {
@@ -96,12 +94,10 @@ public class Navicella extends Entity {
         image = null;
     }
 
-
         g2.drawImage(image, x + (dimWidth/2) - (wifiw/2)    , y - wifih , wifiw,wifih, null);
         g2.setColor(Color.blue);                   //setta il colore
         g2.fillRect(x, y , dimWidth,dimHeight); //disegna dal punto x y
        // g2.fillPolygon();
-       
 
     }
 }

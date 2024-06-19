@@ -118,7 +118,7 @@ public class Pallina extends Entity{
             }
         }else{
 
-            speed = 8;
+            speed = 7;
           
         }
     }

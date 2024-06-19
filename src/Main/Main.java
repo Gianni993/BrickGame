@@ -19,7 +19,5 @@ public class Main {
         window.setVisible(true);                              //finestra visibile
         
         gamePanel.startGameThread();
-        
-        
     }
 }

@@ -49,7 +49,6 @@ public class Mare {
         }
         fpsCounter++;
         if (fpsCounter>120) {fpsCounter=0;}
-       
         
     }
 
@@ -59,7 +58,5 @@ public class Mare {
              y = offsetY + (int) (ampiezza * Math.sin(2 * Math.PI * fq * (x - offsetX) / larghezza));
             g2.drawLine(x - 10, y - 1, x, y);
         }
-
     }
-
 }

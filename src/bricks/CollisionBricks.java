@@ -32,7 +32,6 @@ public class CollisionBricks {
 
             collisionBottomBricks(i);
 
-        
         }
     }
 

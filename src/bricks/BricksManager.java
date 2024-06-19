@@ -8,16 +8,14 @@ import java.util.Scanner;
 import Main.GamePanel;
 
 public class BricksManager {
-    
     GamePanel gp;
     Bricks[] bricks;
     int height = 24;
     int width = 60;
-    int nBricks = 50;
+    int nBricks = 70;
     File[] mattone;
     int[] mattoneMap;
-    
-    int nColonnexRiga = 10;
+    int nColonnexRiga = 14;
     
     public BricksManager(GamePanel gp){
 
@@ -53,31 +51,27 @@ public class BricksManager {
 				scannerDaFile.close();
 			}
 		}
-
    }
-
    public void getMattoni(){
 
     mattone = new File[3];
 
     try {
-        mattone[0] = new File("./res/bricks/dmgclay.png");
-        mattone[1] = new File("./res/bricks/dmgconcrete.png");
-        mattone[2] = new File("./res/bricks/dmgperforated.png");
+        mattone[0] = new File("./res/bricks/bird3.png");
+        mattone[1] = new File("./res/bricks/bird2.png");
+        mattone[2] = new File("./res/bricks/cloud1.png");
 
     } catch(Exception e) { //IOexeption
         e.printStackTrace();        
     }
    }
-
-    
    public void getBricks(){
         
         int colonna = 0;
         int riga = 0;
         //int nColonnexRiga = 10;
-        int fuga = 5;
-        int x = 150; //offset
+        int fuga = 20;
+        int x = 100; //offset
         int y = 50; //offset
         
         for(int i = 0 ; i < nBricks; i++){
