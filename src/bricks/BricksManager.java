@@ -9,7 +9,7 @@ import Main.GamePanel;
 
 public class BricksManager {
     GamePanel gp;
-    Bricks[] bricks;
+    public Bricks[] bricks;
     int height = 24;
     int width = 60;
     int nBricks = 70;
@@ -91,7 +91,6 @@ public class BricksManager {
             }   
         }
     }
-
 
     public void draw(Graphics2D g2){
           

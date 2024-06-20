@@ -22,15 +22,12 @@ public class GamePanel extends JPanel implements Runnable{
     
     KeyHandler keyH = new KeyHandler();
     Thread gameThread;                 //istanza per esecuzione in parallelo
-
     Mare mare = new Mare(this);
-    Navicella nav = new Navicella(this, keyH, mare);
-    Pallina pallina = new Pallina(this, keyH ,nav);
-    
-    
-    BricksManager bricksMan = new BricksManager(this);
-    Collision collisionBricks = new Collision(this, pallina, bricksMan, mare);
-
+    public Navicella nav = new Navicella(this, keyH, mare);
+    public Pallina pallina = new Pallina(this, keyH ,nav);
+    public BricksManager bricksMan = new BricksManager(this);
+    public Collision collisionBricks = new Collision(this, pallina, bricksMan, mare);
+    public UI ui = new UI(this,bricksMan);
 
     public GamePanel(){
 
@@ -95,12 +92,10 @@ public class GamePanel extends JPanel implements Runnable{
         
         //navicella draw
         nav.draw(g2);
-        
         bricksMan.draw(g2);
-
         mare.draw(g2);
-
         pallina.draw(g2);
+        ui.draw(g2);
   
         g2.dispose();                               //rilascia le risorse
     }
